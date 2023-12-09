@@ -105,7 +105,7 @@ export default function Home() {
 
             <p className="text-xl mt-5">
               I&apos;m a 21 year old student based in{" "}
-              <span className="italic">Maribor, Slovenia.</span>,{" "}
+              <span className="italic">Maribor, Slovenia</span>,{" "}
               currently studying Software Engineering at the University of
               Maribor. I&apos;m a passionate{" "}
               <span className="font-bold italic text-accent">
