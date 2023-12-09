@@ -105,18 +105,18 @@ export default function Home() {
 
             <p className="text-xl mt-5">
               I&apos;m a 21 year old student based in{" "}
-              <span className="italic">Maribor, Slovenia.</span> I&apos;m
+              <span className="italic">Maribor, Slovenia.</span>,{" "}
               currently studying Software Engineering at the University of
               Maribor. I&apos;m a passionate{" "}
               <span className="font-bold italic text-accent">
                 programmer and designer.
               </span>{" "}
-              I love to create and design things that are both{" "}
+              with a love for designing and creating things that are both{" "}
               <i>beautiful and functional</i>.
             </p>
 
             <p className="text-xl  mt-5">
-              I&apos;m like a German engine - I&apos;m{" "}
+              I&apos;m like a German engine - {" "}
               <span className="font-bold text-accent italic">efficient</span>,{" "}
               <span className="font-bold text-accent italic">reliable</span> and{" "}
               <span className="font-bold text-accent italic">
