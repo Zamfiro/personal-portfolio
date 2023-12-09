@@ -2,26 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer utilities {
+  .scrollbar-mini::-webkit-scrollbar {
+  display: hidden;
+  height: 5px;
+  width: 5px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+
+.scrollbar-mini::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+
+.scrollbar-mini::-webkit-scrollbar-thumb {
+  background: var(--text);
+  border-radius: 5px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: translateY(25%);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0%);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.fadeInUp-animation{
+  animation: fadeInUp 1.5s;
 }
+
+@layer base {
+  :root {
+    --text: #071822;
+    --background: #e1f0f9;
+    --primary: #1a587a;
+    --secondary: #9775e1;
+    --accent: #8125ad;
+  }
+  .dark {
+    --text: #ddeef8;
+    --background: #06151e;
+    --primary: #85c3e5;
+    --secondary: #401e8a;
+    --accent: #af52da;
+  }
+}
+ 

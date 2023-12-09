@@ -1,113 +1,256 @@
-import Image from 'next/image'
+"use client";
+
+import { KeyboardArrowUp } from "@mui/icons-material";
+import { useEffect, useState, useRef, lazy } from "react";
+import { ThemeToggle } from "@/components/themeToggle";
+import useIsVisible from "@/components/useIsVisible";
+import TechCarousel from "@/components/carousel";
+import Footer from "@/components/footer";
+import ContactForm from "@/components/contactForm";
+import RelevantLinks from "@/components/relevantLinks";
+import Minor from "@/components/minor-desc";
+import CD from "@/components/cd-desc";
 
 export default function Home() {
+  const isBrowser = () => typeof window !== "undefined";
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  const handleScroll = () => {
+    setTimeout(() => {
+      if (isScrolling) {
+        setIsScrolling(true);
+      } else setIsScrolling(false);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
+  const ScrollToContent = () => {
+    if (!isBrowser()) return;
+
+    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+  };
+
+  const ref1 = useRef();
+  const isVisible1 = useIsVisible(ref1);
+
+  const ref2 = useRef();
+  const isVisible2 = useIsVisible(ref2);
+
+  const ref3 = useRef();
+  const isVisible3 = useIsVisible(ref3);
+
+  const ref4 = useRef();
+  const isVisible4 = useIsVisible(ref4);
+
+  const ref5 = useRef();
+  const isVisible5 = useIsVisible(ref5);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex min-h-screen bg-background flex-col justify-between transition-colors duration-1000 ">
+      <section
+        about="Hello"
+        className="z-10 bg-fixed px-8 h-screen flex flex-col bg-gradient-from-tl shadow-inner from-primary to-background bg-gradient-to-br"
+      >
+        <div className="flex justify-end mt-5 fadeInUp-animation">
+          <ThemeToggle />
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+        <div className="fadeInUp-animation sm:px-32 text-text flex flex-col justify-center h-screen w-fill items-start">
+          <h1 className="text-6xl font-bold fadeInUp-animation">
+            Hi I&apos;m <span className="text-primary">Mihajlo</span>
+          </h1>
+          <p className="text-xl mt-2 fadeInUp-animation">
+            My grandma says I&apos;m a genius.{" "}
+            <span className="text-sm font-light italic text-accent dark:text-secondary block sm:inline">
+              *i fixed the wifi*
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
           </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
+        </div>
+        <div className="flex justify-between items-center w-full fadeInUp-animation">
+          <div className="text-primary text-xs sm:text-sm md:text-lg font-light italic [&>p>_span]:text-accent [&>_span]:text-accent w-fit h-fit sm:px-32 fadeInUp-animation">
+            Made using the finest ingredients provided by <span>Next.js</span> and{" "}
+            <span>TailwindCSS</span>{" "}
+            <p className="inline md:block">with help from <span>MaterialUI</span>, deployed on{" "}
+            <span>Vercel</span></p>
+          </div>
+          <RelevantLinks />
+        </div>
+        <button
+          className="flex flex-col p-2 items-center justify-center fadeInUp-animation "
+          onClick={ScrollToContent}
         >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          <KeyboardArrowUp className="text-5xl text-primary animate-bounce" />
+        </button>
+      </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+      <div className="px-12 md:px-24 lg:px-32 z-20">
+        <section about="Bio" className={`h-screen md:h-1/2 text-text pt-12`}>
+          <div
+            ref={ref1}
+            className={`flex text-text flex-col w-full h-full justify-center items-center transition-all ease-in-out duration-1000 ${
+              isVisible1 ? "opacity-100" : "opacity-0 "
+            } `}
+          >
+            <h1 className="text-3xl md:text-4xl font-light text-primary self-start">
+              Bio
+            </h1>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+            <p className="text-xl mt-5">
+              I&apos;m a 21 year old student based in{" "}
+              <span className="italic">Maribor, Slovenia.</span> I&apos;m
+              currently studying Software Engineering at the University of
+              Maribor. I&apos;m a passionate{" "}
+              <span className="font-bold italic text-accent">
+                programmer and designer.
+              </span>{" "}
+              I love to create and design things that are both{" "}
+              <i>beautiful and functional</i>.
+            </p>
+
+            <p className="text-xl  mt-5">
+              I&apos;m like a German engine - I&apos;m{" "}
+              <span className="font-bold text-accent italic">efficient</span>,{" "}
+              <span className="font-bold text-accent italic">reliable</span> and{" "}
+              <span className="font-bold text-accent italic">
+                I don&apos;t break down
+              </span>
+              . My fatal flaw, though, is being a perfectionist. I&apos;m always
+              trying to improve myself and inspire people around me.
+              <p className="mt-5">
+                I enjoy motorsports, rich stories and spending time with my
+                friends.
+              </p>
+              <span className="block mt-5 italic text-primary">
+                If you need me, I&apos;m probably doing side-quests.
+              </span>
+            </p>
+          </div>
+        </section>
+
+        <section about="Education" className="min-h-1/2 w-full mt-20 text-text">
+          <div
+            ref={ref2}
+            className={`flex text-text flex-col w-full h-full justify-center items-center transition-all ease-in-out duration-1000 ${
+              isVisible2 ? "opacity-100" : "opacity-0 "
+            } `}
+          >
+            <h1 className="text-3xl md:text-4xl font-light text-primary mb-5 self-start">
+              Education
+            </h1>
+
+            <div className="flex w-full h-fit justify-center text-text">
+              <ul className="divide-y-2 divide-primary w-full [&>*]:p-5 [&>*]:self-middle [&>*]:w-full">
+                <li className="flex">
+                  <div className="flex flex-col w-2/3 h-full">
+                    <h3 className="text-sm sm:text-md md:text-xl font-semibold self-start">
+                      Electrotechnic School &quot;Mija Stanimirović&quot;
+                    </h3>
+                    <div className="font-light text-xs sm:text-md md:text-lg italic text-text opacity-75 w-fill">
+                      Sep 2017 - Jun 2019
+                    </div>
+                  </div>
+                  <div className="font-light italic text-sm sm:text-md md:text-lg opacity-75 w-1/3 self-top text-right">
+                    Niš
+                  </div>
+                </li>
+                <li className="flex">
+                  <div className="flex flex-col w-2/3 h-full">
+                    <h3 className="text-sm sm:text-md md:text-xl font-semibold self-start">
+                      Srednja elektro-računalniška šola - SERŠ
+                    </h3>
+                    <div className="font-light text-xs sm:text-md md:text-lg italic text-text opacity-75 w-fill">
+                      Sep 2019 - Jun 2021
+                    </div>
+                    <div className="font-light text-xs sm:text-md md:text-lg italic text-text opacity-75 w-fill">
+                      Diploma
+                    </div>
+                  </div>
+                  <div className="font-light italic text-sm sm:text-md md:text-lg opacity-75 w-1/3 self-top text-right">
+                    Maribor
+                  </div>
+                </li>
+                <li className="flex">
+                  <div className="flex flex-col w-2/3 h-full">
+                    <h3 className="text-sm sm:text-md md:text-xl font-semibold self-start">
+                      Fakulteta za elektrotehniko, računalništvo in informatiko
+                      - FERI
+                    </h3>
+                    <div className="font-light text-xs sm:text-md md:text-lg italic text-text opacity-75 ">
+                      Oct 2021
+                    </div>
+                  </div>
+                  <div className="font-light italic text-sm sm:text-md md:text-lg opacity-75 w-1/3 self-top text-right">
+                    Maribor
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section about="Technologies" className="min-h-1/3 mt-20">
+          <div
+            ref={ref4}
+            className={`flex flex-col w-full h-full transition-all ease-in-out duration-1000 ${
+              isVisible4 ? "opacity-100" : "opacity-0 "
+            } `}
+          >
+            <h1 className="text-3xl md:text-4xl font-light text-primary mb-5 self-start">
+              Skills
+            </h1>
+            <div className="flex justify-center text-center place-items-center w-full min-h-full">
+              <TechCarousel />
+            </div>
+          </div>
+        </section>
+
+        <section about="Projects" className="min-h-screen mt-20">
+          <div
+            ref={ref3}
+            className={`space-y-20 transition-opacity ease-in-out duration-1000 ${
+              isVisible3 ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <h1 className="text-3xl md:text-4xl font-light text-primary mb-5">
+              Projects
+            </h1>
+
+            <div>
+              <Minor />
+            </div>
+
+            <div>
+              <CD />
+            </div>
+          </div>
+        </section>
+
+        <section
+          about="Contact"
+          className="flex flex-col h-screen justify-center text-center"
         >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+          <div
+            ref={ref5}
+            className={`flex flex-col justify-center align-middle items-center transition-opacity ease-in-out duration-1000 ${
+              isVisible5 ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <h1 className="text-3xl md:text-4xl font-light text-primary mb-5 text-center">
+              Contact
+            </h1>
+
+            <ContactForm />
+          </div>
+        </section>
       </div>
     </main>
-  )
+  );
 }
