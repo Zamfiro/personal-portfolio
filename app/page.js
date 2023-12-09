@@ -109,7 +109,7 @@ export default function Home() {
               currently studying Software Engineering at the University of
               Maribor. I&apos;m a passionate{" "}
               <span className="font-bold italic text-accent">
-                programmer and designer.
+                programmer and designer
               </span>{" "}
               with a love for designing and creating things that are both{" "}
               <i>beautiful and functional</i>.
