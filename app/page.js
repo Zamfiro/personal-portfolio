@@ -55,7 +55,7 @@ export default function Home() {
   const isVisible5 = useIsVisible(ref5);
 
   return (
-    <main className="flex min-h-screen bg-background flex-col justify-between transition-colors duration-1000 ">
+    <main suppressHydrationWarning className="flex min-h-screen bg-background flex-col justify-between transition-colors duration-1000 ">
       <section
         about="Hello"
         className="z-10 bg-fixed px-8 h-screen flex flex-col bg-gradient-from-tl shadow-inner from-primary to-background bg-gradient-to-br"
@@ -124,10 +124,10 @@ export default function Home() {
               </span>
               . My fatal flaw, though, is being a perfectionist. I&apos;m always
               trying to improve myself and inspire people around me.
-              <p className="mt-5">
+              <span className="block mt-5">
                 I enjoy motorsports, rich stories and spending time with my
                 friends.
-              </p>
+              </span>
               <span className="block mt-5 italic text-primary">
                 If you need me, I&apos;m probably doing side-quests.
               </span>

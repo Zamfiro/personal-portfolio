@@ -17,8 +17,8 @@ function CreatorDashboard() {
       </h3>
 
       <div className="lg:flex lg:space-x-8 ">
-        <div className="flex justify-center md:justify-start md:w-fit w-full">
-          <video src="/CDP Demo.mp4" autoPlay={true} className="w-3/4 md:full" ></video>
+        <div className="flex flex-col justify-center md:justify-start">
+          <video src="/CDP Demo.mp4" type="video/mp4" autoPlay={true} className="self-center md:self-start md:w-full w-3/4" controls></video>
         </div>
 
         <div className="sm:flex sm:flex-col justify-center space-y-5">
