@@ -1,11 +1,11 @@
 "use client";
 
-import { KeyboardArrowUp } from "@mui/icons-material";
+import KeyboardArrowUp from '@mui/icons-material/KeyboardArrowUp';
 import { useEffect, useState, useRef, lazy } from "react";
 import { ThemeToggle } from "@/components/themeToggle";
 import useIsVisible from "@/components/useIsVisible";
 import TechCarousel from "@/components/carousel";
-import Footer from "@/components/footer";
+// import Footer from "@/components/footer";
 import ContactForm from "@/components/contactForm";
 import RelevantLinks from "@/components/relevantLinks";
 import Minor from "@/components/minor-desc";

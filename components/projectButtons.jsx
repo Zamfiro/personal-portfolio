@@ -1,5 +1,6 @@
 import React from 'react'
-import { OpenInNew, GitHub } from "@mui/icons-material"
+import OpenInNew from '@mui/icons-material/OpenInNew';
+import GitHub from '@mui/icons-material/GitHub';
 
 function ProjectButtons({demoUrl, githubUrl, useDemo, useGithub}) {
   return (

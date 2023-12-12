@@ -1,4 +1,6 @@
-import { FiberManualRecord, FiberManualRecordOutlined, GitHub, Instagram } from '@mui/icons-material'
+import FiberManualRecord from '@mui/icons-material/FiberManualRecord'
+import GitHub from '@mui/icons-material/GitHub'
+import Instagram from '@mui/icons-material/Instagram'
 import React from 'react'
 
 function RelevantLinks() {
