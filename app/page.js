@@ -60,7 +60,8 @@ export default function Home() {
         about="Hello"
         className="z-10 bg-fixed px-8 h-screen flex flex-col bg-gradient-from-tl shadow-inner from-primary to-background bg-gradient-to-br"
       >
-        <div className="flex justify-end mt-5 fadeInUp-animation">
+        <div className="flex justify-end gap-5 mt-5 fadeInUp-animation">
+          <a href='/mihajloNikolicCV.pdf' target='_blank' rel='noopener noreferrer' className=" flex border border-text justify-center items-center rounded-md  text-text bg-secondary hover:scale-105 p-2 align-middle sm:transition-transform duration-500">View my CV</a>
           <ThemeToggle />
         </div>
         <div className="fadeInUp-animation sm:px-32 text-text flex flex-col justify-center h-screen w-fill items-start">
